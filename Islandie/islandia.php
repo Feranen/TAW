@@ -59,7 +59,21 @@
     <main>
         <h2>Galeria</h2>
         <section>
+            <?php
+            $adress = "localhost";
+            $login = "root";
+            $pass = "";
+            $dbName = "islandia";
+            $conn = mysqli_connect($adress, $login, $pass, $dbName);
+            $query = 'SELECT idObiekt, plik, nazwa FROM obiekty WHERE panstwo = "Islandia";';
+            $result = mysqli_query($conn, $query);
+            while ($fetched = mysqli_fetch_row($result)) {
+                echo "<a href='obiekty.php?idObject={$fetched[0]}' ><img src='{$fetched[1]}' alt='{$fetched[2]}' title='{$fetched[2]}' class='miniatury'></img></a>";
+            }
 
+
+            mysqli_close($conn);
+            ?>
         </section>
     </main>
 
