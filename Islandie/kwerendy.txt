@@ -1,6 +1,6 @@
 SELECT idObiekt, plik, nazwa FROM obiekty WHERE panstwo = "Islandia"; 
 
-SELECT plik, nazwa, nazwaCechy, wartoscCechy, opis FROM obiekty, rodzaje WHERE rodzaje.idRodzaj = obiekty.idRodzaj AND obiekty.idObiekt = "46";
+SELECT plik, nazwa, nazwaCechy, wartoscCechy, obiekty.opis, rodzaje.rodzaj FROM obiekty, rodzaje WHERE rodzaje.idRodzaj = obiekty.idRodzaj AND obiekty.idObiekt = "46";
 
 SELECT nazwa FROM obiekty WHERE panstwo = "Islandia" AND idRodzaj = 10;
 

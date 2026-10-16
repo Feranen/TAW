@@ -9,15 +9,6 @@
 </head>
 
 <body>
-    <header>
-        <h1><a href="islandia.php">Zwiedzaj Islandię</a></h1>
-    </header>
-    <main>
-        <h2>Opis miejsca</h2>
-        <section>
-
-        </section>
-    </main>
     <aside>
         <h3>Do zwiedzania</h3>
         <ul>
@@ -61,6 +52,30 @@
             </li>
         </ul>
     </aside>
+    <header>
+        <h1><a href="islandia.php">Zwiedzaj Islandię</a></h1>
+    </header>
+    <main>
+        <h2>Opis miejsca</h2>
+        <section>
+            <?php
+            $adress = "localhost";
+            $login = "root";
+            $pass = "";
+            $dbName = "islandia";
+            $conn = mysqli_connect($adress, $login, $pass, $dbName);
+            $query = "SELECT plik, nazwa, nazwaCechy, wartoscCechy, obiekty.opis, rodzaje.rodzaj FROM obiekty, rodzaje WHERE rodzaje.idRodzaj = obiekty.idRodzaj AND obiekty.idObiekt = '{$_GET['idObject']}';";
+            $result = mysqli_query($conn, $query);
+            while ($fetched = mysqli_fetch_row($result)) {
+                echo "<img src='{$fetched[0]}' alt='{$fetched[1]}'><h2>{$fetched[1]}</h2><h3>{$fetched[5]}</h3><p>{$fetched[2]} : {$fetched[3]}</p> <p>{$fetched[4]}</p>";
+            }
+
+
+            mysqli_close($conn);
+            ?>
+        </section>
+    </main>
+
     <footer>
         <hr>
         <p>Autor: Fer</p>
