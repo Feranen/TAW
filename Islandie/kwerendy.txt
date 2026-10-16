@@ -1,0 +1,7 @@
+SELECT idObiekt, plik, nazwa FROM obiekty;
+
+SELECT plik, nazwa, nazwaCechy, wartoscCechy, opis FROM obiekty, rodzaje WHERE rodzaje.idRodzaj = obiekty.idRodzaj AND obiekty.idObiekt = "46";
+
+SELECT nazwa FROM obiekty WHERE panstwo = "Islandia" AND idRodzaj = 10;
+
+SELECT rodzaje.rodzaj, COUNT(obiekty.nazwa) "Liczba obiektów" FROM obiekty, rodzaje WHERE rodzaje.idRodzaj = obiekty.idRodzaj GROUP BY rodzaje.rodzaj;
