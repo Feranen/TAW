@@ -27,6 +27,7 @@ section {
     margin: 10px 50px 10px 50px;
     opacity: 0.8;
     overflow: scroll;
+    height: 400px;
 }
 .miniatury {
     height: 200px;
